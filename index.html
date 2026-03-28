@@ -97,8 +97,31 @@
     .hero {
       background: linear-gradient(135deg, var(--green) 0%, var(--green-light) 100%);
       color: var(--white);
-      padding: 100px 0 80px;
-      text-align: center;
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-content {
+      padding: 80px 48px 80px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-img-col {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img-col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
     .hero-label {
       display: inline-block;
@@ -376,7 +399,9 @@
     @media (max-width: 768px) {
       .section { padding: 56px 0; }
       .section-title { font-size: 1.4rem; }
-      .hero { padding: 72px 0 60px; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-img-col { height: 300px; order: -1; }
+      .hero-content { padding: 48px 24px; }
       .hero-title { font-size: 1.4rem; }
       .hero-stats { gap: 28px; }
       .pain-list { grid-template-columns: 1fr; }
@@ -404,35 +429,40 @@
 
 <!-- ===== ヒーロー ===== -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-label">結婚相談所様向け 外部スタイリスト連携</div>
-    <h1 class="hero-title">
-      会員の外見サポートを、<br>
-      <em>プロに任せてください。</em><br>
-      成婚率が上がります。
-    </h1>
-    <p class="hero-sub">
-      アパレル歴15年・CREA掲載スタイリストHIROKOが、<br>
-      あなたの相談所の「外見サポート」を丸ごと引き受けます。<br>
-      相談所様は、本来の婚活サポートに集中してください。
-    </p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">300<span style="font-size:1.2rem">名+</span></div>
-        <div class="hero-stat-label">累計サポート実績</div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-label">結婚相談所様向け 外部スタイリスト連携</div>
+      <h1 class="hero-title">
+        会員の外見サポートを、<br>
+        <em>プロに任せてください。</em><br>
+        成婚率が上がります。
+      </h1>
+      <p class="hero-sub">
+        アパレル歴15年・CREA掲載スタイリストHIROKOが、<br>
+        あなたの相談所の「外見サポート」を丸ごと引き受けます。<br>
+        相談所様は、本来の婚活サポートに集中してください。
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">300<span style="font-size:1.2rem">名+</span></div>
+          <div class="hero-stat-label">累計サポート実績</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">15<span style="font-size:1.2rem">年</span></div>
+          <div class="hero-stat-label">アパレル業界経験</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">CREA</div>
+          <div class="hero-stat-label">2026年3月号掲載</div>
+        </div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">15<span style="font-size:1.2rem">年</span></div>
-        <div class="hero-stat-label">アパレル業界経験</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">CREA</div>
-        <div class="hero-stat-label">2026年3月号掲載</div>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-hero">まずは無料相談を予約する →</a>
+        <a href="#plans" class="btn-hero-sub">料金・プランを見る</a>
       </div>
     </div>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn-hero">まずは無料相談を予約する →</a>
-      <a href="#plans" class="btn-hero-sub">料金・プランを見る</a>
+    <div class="hero-img-col">
+      <img src="hero.png" alt="スタイリストがクライアントにアドバイスするシーン" />
     </div>
   </div>
 </section>
@@ -491,18 +521,25 @@
   <div class="container">
     <h2 class="section-title">実績・信頼性</h2>
     <div class="divider"></div>
-    <div class="proof-nums">
-      <div class="proof-num">
-        <div class="proof-num-value">300<span style="font-size:1.5rem">名+</span></div>
-        <div class="proof-num-label">累計サポート人数</div>
+    <div style="display:flex; gap:48px; align-items:center; margin-bottom:48px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:240px; text-align:center;">
+        <img src="result.png" alt="スタイリング後のイメージ" style="width:100%; max-width:320px; border-radius:8px; object-fit:cover; max-height:340px;" />
       </div>
-      <div class="proof-num">
-        <div class="proof-num-value">15<span style="font-size:1.5rem">年</span></div>
-        <div class="proof-num-label">アパレル業界経験</div>
-      </div>
-      <div class="proof-num">
-        <div class="proof-num-value">5<span style="font-size:1.5rem">年</span></div>
-        <div class="proof-num-label">パーソナルスタイリスト歴</div>
+      <div style="flex:1; min-width:240px;">
+        <div class="proof-nums" style="justify-content:flex-start; margin-bottom:0;">
+          <div class="proof-num">
+            <div class="proof-num-value">300<span style="font-size:1.5rem">名+</span></div>
+            <div class="proof-num-label">累計サポート人数</div>
+          </div>
+          <div class="proof-num">
+            <div class="proof-num-value">15<span style="font-size:1.5rem">年</span></div>
+            <div class="proof-num-label">アパレル業界経験</div>
+          </div>
+          <div class="proof-num">
+            <div class="proof-num-value">5<span style="font-size:1.5rem">年</span></div>
+            <div class="proof-num-label">パーソナルスタイリスト歴</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="voices">
@@ -549,6 +586,9 @@
   <div class="container">
     <h2 class="section-title">連携方法と料金</h2>
     <div class="divider"></div>
+    <div style="text-align:center; margin-bottom:48px;">
+      <img src="flatlay.png" alt="スタイリングアイテム" style="width:100%; max-width:720px; border-radius:8px; object-fit:cover; max-height:280px; object-position:center;" />
+    </div>
     <div class="scheme-cards">
       <div class="scheme-card">
         <div class="scheme-num">01</div>
