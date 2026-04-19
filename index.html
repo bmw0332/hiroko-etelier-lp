@@ -412,20 +412,55 @@
 
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
-      .section { padding: 64px 0; }
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-img-col { height: 340px; order: -1; }
-      .hero-content { padding: 56px 28px; }
-      .hero-title { font-size: 1.45rem; }
-      .hero-stats { width: 100%; }
-      .hero-stat { flex: 1; padding: 14px 16px; }
+      .container { padding: 0 18px; }
+      .section { padding: 56px 0; }
+
+      /* Hero */
+      .hero-inner { grid-template-columns: 1fr; min-height: auto; }
+      .hero-img-col { height: 55vw; min-height: 220px; max-height: 360px; order: -1; }
+      .hero-img-col img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+      .hero-content { padding: 36px 18px 48px; }
+      .hero-eyebrow { font-size: 0.68rem; margin-bottom: 16px; }
+      .hero-title { font-size: 1.35rem; margin-bottom: 18px; }
+      .hero-desc { font-size: 0.85rem; margin-bottom: 28px; max-width: 100%; }
+      .hero-stats { width: 100%; margin-bottom: 28px; }
+      .hero-stat { flex: 1; padding: 12px 10px; min-width: 0; }
+      .hero-stat-num { font-size: 1.35rem; }
+      .hero-stat-label { font-size: 0.62rem; }
+      .hero-buttons { flex-direction: column; gap: 10px; }
+      .hero-buttons .btn { width: 100%; text-align: center; }
+
+      /* Sections */
       .pain-grid { grid-template-columns: 1fr; gap: 32px; }
-      .features-grid { grid-template-columns: 1fr; }
+      .pain-conclusion { padding: 24px 20px; font-size: 0.95rem; }
+      .features-grid { grid-template-columns: 1fr; gap: 2px; }
+      .feature-card { padding: 32px 22px; }
       .flow-steps { grid-template-columns: 1fr; }
-      .trust-inner { grid-template-columns: 1fr; gap: 36px; }
+      .flow-step { padding: 32px 22px; }
+      .trust-inner { grid-template-columns: 1fr; gap: 32px; }
+      .trust-stat-row { gap: 20px; }
       .testimonials-grid { grid-template-columns: 1fr; }
-      .profile-inner { grid-template-columns: 1fr; gap: 36px; }
+      .profile-inner { grid-template-columns: 1fr; gap: 28px; }
+      .profile-img img { max-height: 320px; object-fit: cover; }
       .scheme-cards { grid-template-columns: 1fr; }
+
+      /* Price table */
+      .price-table-wrap { margin: 0 -18px; padding: 0 18px; }
+      .price-table th, .price-table td { padding: 12px 12px; font-size: 0.82rem; }
+
+      /* CTA */
+      .cta-section { padding: 72px 0; }
+      .cta-buttons { flex-direction: column; align-items: center; gap: 12px; }
+      .btn-cta-main, .btn-cta-sub { width: 100%; max-width: 320px; text-align: center; padding: 16px 24px; }
+
+      /* Nav */
+      .nav-cta .btn { padding: 8px 14px; font-size: 0.72rem; }
+    }
+
+    @media (max-width: 400px) {
+      .hero-title { font-size: 1.2rem; }
+      .hero-stat-num { font-size: 1.15rem; }
+      .section-title { font-size: 1.25rem; }
     }
   </style>
 </head>
@@ -440,7 +475,7 @@
         <small>Personal Stylist HIROKO</small>
       </div>
       <div class="nav-cta">
-        <a href="#contact" class="btn btn-primary">無料相談を予約する</a>
+        <a href="https://etelier-salon2509.stores.jp/reserve/salon-etelier/1505487" target="_blank" class="btn btn-primary">無料相談を予約する</a>
       </div>
     </div>
   </div>
@@ -476,7 +511,7 @@
         </div>
       </div>
       <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary">まずは無料相談を予約する →</a>
+        <a href="https://etelier-salon2509.stores.jp/reserve/salon-etelier/1505487" target="_blank" class="btn btn-primary">まずは無料相談を予約する →</a>
         <a href="#plans" class="btn btn-outline">プランを見る</a>
       </div>
     </div>
@@ -726,24 +761,10 @@
             <td>スタートプランの全内容＋ショッピング同行2〜3時間・着回しコーデリスト作成・ヘアメイクアドバイス</td>
             <td><strong>¥69,000</strong></td>
           </tr>
-          <tr>
-            <td>プロフィール写真対策</td>
-            <td>印象分析60分・スタイリング提案2コーデ・服装/ヘア/印象アドバイス</td>
-            <td>¥12,000〜</td>
-          </tr>
-          <tr>
-            <td>デートスタイリングサポート<span class="popular-badge">人気</span></td>
-            <td>シーン別コーデ提案2コーデ・ヘアメイクバランスアドバイス・着回しリスト作成</td>
-            <td>¥17,000〜</td>
-          </tr>
-          <tr>
-            <td>ショッピング同行</td>
-            <td>オンラインヒアリング30分・実店舗での服選び3時間・着こなしレクチャー</td>
-            <td>¥35,000〜</td>
-          </tr>
         </tbody>
       </table>
       <p class="price-note">※ 紹介料：成約時10%（相談所様へのバックマージン）　※ 相談所様専用プランのカスタマイズも対応可能</p>
+      <p style="margin-top: 18px; font-size: 0.875rem; color: var(--text-mid); line-height: 1.9;">その他、柔軟に導入プラン・価格帯をご相談のうえ進めさせていただきます。</p>
     </div>
   </div>
 </section>
@@ -793,8 +814,8 @@
       費用は一切かかりません。お気軽にどうぞ。
     </p>
     <div class="cta-buttons">
-      <a href="#" class="btn-cta-main">無料相談を予約する →</a>
-      <a href="#" class="btn-cta-sub">LINEで気軽に問い合わせる →</a>
+      <a href="https://etelier-salon2509.stores.jp/reserve/salon-etelier/1505487" target="_blank" class="btn-cta-main">無料相談を予約する →</a>
+      <a href="https://s.lmes.jp/landing-qr/2009451589-p5nS3s7F?uLand=2Ntdba" target="_blank" class="btn-cta-sub">LINEで気軽に問い合わせる →</a>
     </div>
     <div class="cta-notes">
       <div>・申し込み後の強引なご案内は一切いたしません</div>
